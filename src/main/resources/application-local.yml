@@ -1,0 +1,16 @@
+eureka:
+   client:
+     service-url:
+       default-zone: http://localhost:8761/eureka/
+
+spring:
+    datasource:
+             url:
+             username: postgres
+             password: nic@123
+             driver-class-name: org.PostgresSQL.Driver
+    jpa:
+      hibernate:
+         ddl-auto: update
+      show-sql: true
+      database-platform: org.hibernate.dialect.PostgresSQLDialect
