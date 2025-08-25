@@ -2,16 +2,16 @@ server:
     port: 9093
 
 Spring:
-   profile:
+   profiles:
       active: local
    application:
             name: USER-SERVICE
    datasource:
-       driver-class-name: com.postgresql.driver
+       driver-class-name: org.postgresql.Driver
    jpa:
      hibernate:
         ddl-auto: update
      show-sql: true
-     database-platform: org.hibernate.dialect.PostgresSQLDialect
+     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 

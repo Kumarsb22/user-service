@@ -17,15 +17,13 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public UserDTO saveUserInDb(UserDTO userDTO) {
-        User servedUser=this.userRepo.save(UserMapper.INSTACE.mapUserDtoToUser(userDTO));
-        return UserMapper.INSTACE.mapUserToUserDto(servedUser);
+        User servedUser=this.userRepo.save(UserMapper.INSTANCE.mapUserDtoToUser(userDTO));
+        return UserMapper.INSTANCE.mapUserToUserDto(servedUser);
     }
 
     @Override
     public UserDTO fetchUerDetailsById(Integer userId) {
         Optional<User> fetchedUser=this.userRepo.findById(userId);
-        if(fetchedUser.isPresent())
-            return UserMapper.INSTACE.mapUserToUserDto(fetchedUser.get());
-        return null;
+        return fetchedUser.map(UserMapper.INSTANCE::mapUserToUserDto).orElse(null);
     }
 }
